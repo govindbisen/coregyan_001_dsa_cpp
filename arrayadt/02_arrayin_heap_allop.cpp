@@ -27,7 +27,7 @@ void Append(struct Array *arr, int x)
         arr->A[arr->length++] = x;
 }
 
-void insert(struct Array *arr, int index, int x)
+void Insert(struct Array *arr, int index, int x)
 {
     int i;
     if (index >= 0 && index <= arr->length)
@@ -39,13 +39,33 @@ void insert(struct Array *arr, int index, int x)
     }
 }
 
+int Delete(struct Array *arr, int index)
+{
+    int x = 0;
+    int i;
+    if (index >= 0 && index < arr->length)
+    {
+        x = arr->A[index];
+        for (i = index; index < arr->length; index++)
+        {
+            arr->A[i] = arr->A[i + 1];
+        }
+        arr->length--;
+        return x;
+    }
+    return 0;
+}
+
 int main()
 { /** Arrray in heap */
     struct Array arr = {{1, 2, 3, 4, 5}, 10, 5};
 
     Append(&arr, 99999);
-    insert(&arr, 1, 333);
+    Insert(&arr, 1, 333);
     Display(arr);
+    printf(" Deleted %d \n", Delete(&arr, 4));
+    Display(arr);
+
     return 0;
 }
 
