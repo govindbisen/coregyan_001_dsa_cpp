@@ -56,8 +56,11 @@ void ReverseWithAuxArray(struct Array *arr)
 int main()
 { /** Arrray in heap */
     struct Array arr = {{10, 5, 11, 17, 34, 50, 70, 76, 78, 100}, 10, 10};
+
     ReverseWithAuxArray(&arr);
+
     Display(arr);
+
     return 0;
 }
 
